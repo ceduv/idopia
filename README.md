@@ -1,1 +1,1 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+The aim of the this tech test is to determine your ability to compose basic front end structures, interact  with stimulus controllers and implement simple back end systems.
