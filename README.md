@@ -8,5 +8,10 @@ To test how you learn new technologies we would like to see you implement the em
 
 You can find a tutorial on Stimulus Reflex here: https://docs.stimulusreflex.com/
 
+If you wants  to take things a step further you can implement live broadcasting of reactions using actioncable or turbostreams, so that a user's page updates the reaction count as another user somewhere else reacts. This forms the basis of much functionality on the idopia platform.
+
 If you have any questions about what is required from this test before the interview feel free to reach out. The goal of this test is not to determine whether you can interpret ambiguous instructions :)
+
+Good luck!
+
 
