@@ -1,14 +1,30 @@
-<%= simple_form_for([current_user, @post]) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :content %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit %>
-<% end %>
-
-<% @posts.each do |post| %>
-  <div class="post">
-    <%= image_tag post.photo %>
-    <h5><%= post.title %></h5>
-    <p><%= post.content %></p>
+<div class="container">
+  <%= simple_form_for([current_user, @post]) do |f| %>
+    <%= f.input :title %>
+    <%= f.input :content %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit %>
+  <% end %>
+</div>
+<div class="container">
+  <div class="row">
+      <% @posts.each do |post| %>
+        <div class="post col-4 d-flex flex-column justify-content-around p-2">
+          <%= image_tag post.photo , style: 'height:100%;width:auto', class: 'rounded' %>
+          <h5><%= post.title %></h5>
+          <p><%= post.content[0..20]... %></p>
+          <div class="d-flex justify-content-around">
+            <%= button_to '😊' %>
+            <%= button_to '😂' %>
+            <% check_like = post.likes.find { |like| like.user_id == current_user.id} %>
+            <% if check_like %>
+              <%= button_to "#{post.likes.count} 👍", post_like_path(post, check_like), method: :delete %>
+            <% else %>
+              <%= button_to "#{post.likes.count} 👍", post_likes_path(post), method: :post %>
+            <% end %>
+            <%= button_to '👎' %>
+          </div>
+        </div>
+      <% end %>
   </div>
-<% end %>
+</div>
