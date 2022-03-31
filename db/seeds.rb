@@ -27,3 +27,9 @@ post3 = Post.new(user: user, title: "Your first tech interview", content: "Just 
 file3 = URI.open('https://upload.wikimedia.org/wikipedia/commons/8/85/Young_Man_in_a_Interview.jpg')
 post3.photo.attach(io: file3, filename: 'nes.png', content_type: 'image/png')
 post3.save
+
+### EMOJI
+emoji_smile = Emoji.create(symbol: "\xF0\x9F\x98\x83")
+emoji_joy = Emoji.create(symbol: "\xF0\x9F\x98\x82")
+emoji_like = Emoji.create(symbol: "\xF0\x9F\x91\x8D")
+emoji_dislike = Emoji.create(symbol: "\xF0\x9F\x91\x8E")
