@@ -1,0 +1,57 @@
+.ced-card{
+  border-radius: 30px;
+  position: relative;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.253);
+}
+
+.ced-img {
+  height: 160px;
+  width: 100%;
+  object-fit: cover;
+  border-top-right-radius: 30px;
+  border-top-left-radius: 30px;
+  opacity: 0.9;
+  filter: brightness(35%);
+}
+
+
+.ced-card-title{
+
+  position: absolute;
+  top: 32%;
+  left: 2%;
+
+  h5{
+    color: white;
+    font-weight: bolder;
+    font-size: 20px;
+  }
+}
+
+.ced-card-content{
+  margin: 5px;
+}
+
+.ced-emoji-bar{
+  margin-bottom: 10px;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.btn-emoji-delete{
+  border: 1px solid #4536f4;
+  background-color: #4536f4;
+  padding: 6px 19px;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  margin-top: 2px;
+}
+
+.btn-emoji-valid{
+  border: 1px solid #4536f4;
+  padding: 6px 19px;
+  border-radius: 20px;
+  font-weight: bold;
+  margin-top: 4px;
+}

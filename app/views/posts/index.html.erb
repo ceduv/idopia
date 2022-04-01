@@ -8,39 +8,45 @@
   <% end %>
 </div>
 <div class="container">
-  <div class="row">
-      <% @posts.each do |post| %>
-        <div class="post col-4 d-flex flex-column justify-content-around p-2">
-          <%= image_tag post.photo , style: 'height:100%;width:auto', class: 'rounded' %>
-          <h5><%= post.title %></h5>
-          <p><%= post.content[0..20]... %></p>
-          <div class="d-flex justify-content-around">
+  <div class="row g-0 mt-2 d-flex justify-content-between flex-wrap">
+      <% @posts.reverse.each do |post| %>
+        <div class="post col-lg-3 col-sm-5 m-2 d-flex flex-column justify-content-between ced-card">
+          <div class="img-div">
+            <%= image_tag post.photo , class: 'ced-img' %>
+          </div>
+          <div class="ced-card-title">
+          <h5 ><%= post.title %></h5>
+          </div>
+          <div class="ced-card-content">
+            <p><%= post.content[0..100]... %></p>
+          </div>
+          <div class="d-flex justify-content-around ced-emoji-bar flex-wrap">
             <% check_like = post.likes.find { |like| like.user_id == current_user.id && like.emoji_id == 1} %>
             <% if check_like %>
-              <%= button_to "#{@emoji[0].symbol} #{post.likes.where(emoji_id: 1).count}", post_like_path(post, check_like), params: {emoji_id: "#{@emoji[0].id}"}, method: :delete %>
+              <%= button_to "#{@emoji[0].symbol} #{post.likes.where(emoji_id: 1).count}", post_like_path(post, check_like), params: {emoji_id: "#{@emoji[0].id}"}, method: :delete, class: "btn-emoji-delete" %>
             <% else %>
-              <%= button_to "#{@emoji[0].symbol} #{post.likes.where(emoji_id: 1).count}", post_likes_path(post), method: :post, params: {emoji_id: "#{@emoji[0].id}"} %>
+              <%= button_to "#{@emoji[0].symbol} #{post.likes.where(emoji_id: 1).count}", post_likes_path(post), method: :post, params: {emoji_id: "#{@emoji[0].id}"}, class: "btn-emoji-valid" %>
             <% end %>
 
             <% check_like = post.likes.find { |like| like.user_id == current_user.id && like.emoji_id == 2} %>
             <% if check_like %>
-              <%= button_to "#{@emoji[1].symbol} #{post.likes.where(emoji_id: 2).count}", post_like_path(post, check_like), method: :delete, params: {emoji_id: "#{@emoji[1].id}"} %>
+              <%= button_to "#{@emoji[1].symbol} #{post.likes.where(emoji_id: 2).count}", post_like_path(post, check_like), method: :delete, params: {emoji_id: "#{@emoji[1].id}"}, class: "btn-emoji-delete"  %>
             <% else %>
-              <%= button_to "#{@emoji[1].symbol} #{post.likes.where(emoji_id: 2).count}", post_likes_path(post), method: :post, params: {emoji_id: "#{@emoji[1].id}"} %>
+              <%= button_to "#{@emoji[1].symbol} #{post.likes.where(emoji_id: 2).count}", post_likes_path(post), method: :post, params: {emoji_id: "#{@emoji[1].id}"}, class: "btn-emoji-valid" %>
             <% end %>
 
             <% check_like = post.likes.find { |like| like.user_id == current_user.id && like.emoji_id == 3} %>
             <% if check_like %>
-              <%= button_to "#{@emoji[2].symbol} #{post.likes.where(emoji_id: 3).count}", post_like_path(post, check_like), method: :delete, params: {emoji_id: "#{@emoji[2].id}"} %>
+              <%= button_to "#{@emoji[2].symbol} #{post.likes.where(emoji_id: 3).count}", post_like_path(post, check_like), method: :delete, params: {emoji_id: "#{@emoji[2].id}"}, class: "btn-emoji-delete"  %>
             <% else %>
-              <%= button_to "#{@emoji[2].symbol} #{post.likes.where(emoji_id: 3).count}", post_likes_path(post), method: :post, params: {emoji_id: "#{@emoji[2].id}"} %>
+              <%= button_to "#{@emoji[2].symbol} #{post.likes.where(emoji_id: 3).count}", post_likes_path(post), method: :post, params: {emoji_id: "#{@emoji[2].id}"}, class: "btn-emoji-valid" %>
             <% end %>
 
             <% check_like = post.likes.find { |like| like.user_id == current_user.id && like.emoji_id == 4} %>
             <% if check_like %>
-              <%= button_to "#{@emoji[3].symbol} #{post.likes.where(emoji_id: 4).count}", post_like_path(post, check_like), method: :delete, params: {emoji_id: "#{@emoji[3].id}"} %>
+              <%= button_to "#{@emoji[3].symbol} #{post.likes.where(emoji_id: 4).count}", post_like_path(post, check_like), method: :delete, params: {emoji_id: "#{@emoji[3].id}"}, class: "btn-emoji-delete"  %>
             <% else %>
-              <%= button_to "#{@emoji[3].symbol} #{post.likes.where(emoji_id: 4).count}", post_likes_path(post), method: :post, params: {emoji_id: "#{@emoji[3].id}"} %>
+              <%= button_to "#{@emoji[3].symbol} #{post.likes.where(emoji_id: 4).count}", post_likes_path(post), method: :post, params: {emoji_id: "#{@emoji[3].id}"}, class: "btn-emoji-valid" %>
             <% end %>
           </div>
         </div>
